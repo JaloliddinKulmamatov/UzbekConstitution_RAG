@@ -42,11 +42,22 @@ PAGE = """
   #q { flex:1; padding:10px 14px; border-radius:8px; border:1px solid #ccc; font-size:1rem; }
   button { padding:10px 18px; border:none; border-radius:8px; background:#2563eb; color:white; font-size:1rem; cursor:pointer; }
   button:disabled { background:#aaa; }
+  #examples { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
+  .chip { background:white; border:1px solid #d7dae0; color:#2563eb; padding:6px 12px; border-radius:16px; font-size:0.85rem; cursor:pointer; }
+  .chip:hover { background:#eef0f3; }
 </style>
 </head>
 <body>
 <h1>🇺🇿 O'zbekiston Konstitutsiyasi bo'yicha AI-yordamchi</h1>
 <p style="color:#666; font-size:0.9rem;">Hybrid RAG (BM25 + dense embeddings) &middot; llama3.2:3b (Ollama)</p>
+<p style="color:#888; font-size:0.85rem; margin-bottom:4px;">Sinab ko'rish uchun savollardan birini tanlang:</p>
+<div id="examples">
+  <span class="chip" onclick="ask(this)">18-modda nima haqida?</span>
+  <span class="chip" onclick="ask(this)">Prezident qanday saylanadi?</span>
+  <span class="chip" onclick="ask(this)">Fuqarolarning asosiy huquqlari qanday?</span>
+  <span class="chip" onclick="ask(this)">Davlat tili haqida nima deyilgan?</span>
+  <span class="chip" onclick="ask(this)">Oliy Majlis qanday tuziladi?</span>
+</div>
 <div id="chat"></div>
 <div id="inputRow">
   <input id="q" placeholder="Savolingizni yozing..." autofocus />
@@ -59,6 +70,11 @@ const input = document.getElementById('q');
 const btn = document.getElementById('sendBtn');
 
 input.addEventListener('keydown', e => { if (e.key === 'Enter') send(); });
+
+function ask(el) {
+  input.value = el.textContent;
+  send();
+}
 
 function addMsg(role, text) {
   const div = document.createElement('div');

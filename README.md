@@ -78,6 +78,14 @@ python app_web.py
 
 Brauzerda oching: http://localhost:5000
 
+Veb-interfeysda tayyor namuna savollar (chip tugmalar) mavjud — ularni bosish
+orqali darhol sinab ko'rishingiz mumkin, masalan:
+- "18-modda nima haqida?"
+- "Prezident qanday saylanadi?"
+- "Fuqarolarning asosiy huquqlari qanday?"
+- "Davlat tili haqida nima deyilgan?"
+- "Oliy Majlis qanday tuziladi?"
+
 ## Yangi qonun qo'shish
 
 Tizim `config.DATA_SOURCES` ro'yxatidagi barcha CSV fayllarni avtomatik yig'ib
